@@ -57,7 +57,6 @@ Packages (installed with Homebrew):
   - ssh-copy-id
   - htop
   - php70
-  - php70
   - php70-mcrypt
 
 My [dotfiles](https://github.com/ekka21/dotfiles) are also installed into the current user's home directory.

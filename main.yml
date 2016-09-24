@@ -8,8 +8,6 @@
   roles:
     - geerlingguy.homebrew
     - geerlingguy.dotfiles
-    - vim-janus
-    - oh-my-zsh
 
   tasks:
     - include: tasks/ansible-setup.yml
