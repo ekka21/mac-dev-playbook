@@ -1,0 +1,9 @@
+---
+- name: Remove .vim
+  file: path=~/.vim state=absent
+
+- name: Clone Vim Janus repo
+  git: repo=https://github.com/carlhuda/janus.git dest=~/.vim
+
+- name: Run installation
+  shell: chdir=~/.vim rake

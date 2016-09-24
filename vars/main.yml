@@ -3,50 +3,40 @@ downloads: ~/.ansible-downloads/
 
 configure_sudoers: yes
 
-dotfiles_repo: https://github.com/geerlingguy/dotfiles.git
+# ----- Dotfiles config ---------
+dotfiles_repo: "https://github.com/ekka21/dotfiles.git"
 dotfiles_repo_accept_hostkey: yes
-dotfiles_repo_local_destination: ~/Dropbox/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/Documents/dotfiles
 dotfiles_files:
-  - .bash_profile
   - .gitconfig
   - .gitignore
-  - .inputrc
-  - .osx
-  - .vimrc
+  - .vimrc.before
+  - .vimrc.after
+  - .zshrc
+  - .tmux.conf
 
+#-------- Mac missing packages ---------
+homebrew_install_path: /usr/local/homebrew
 homebrew_installed_packages:
-  # - ansible # Installed via Pip.
-  - autoconf
-  - bash-completion
-  - gettext
+  - pv
+  - openssl
   - git
+  - git-flow
   - go
   - gpg
-  - hub
-  - httpie
-  - iperf
-  - libdvdcss
-  - libevent
-  - packer
   - python
   - sqlite
-  - mcrypt
-  - mysql
-  - npm
+  - zsh
+  - vim
+  - tmux
   - nvm
+  - npm
+  - tig
+  - ssh-copy-id
+  - htop
   - php70
   - php70-mcrypt
-  - php70-xdebug
-  - ssh-copy-id
-  - cowsay
-  - readline
-  - subversion
-  - openssl
-  - pv
-  - drush
-  - wget
-  - wrk
-
+  
 homebrew_taps:
   - homebrew/core
   - caskroom/cask
@@ -55,28 +45,17 @@ homebrew_taps:
   - homebrew/php
   - homebrew/versions
 
+# ------- Mac Applications --------
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - docker
-  - dropbox
-  # - fing # Note: https://github.com/caskroom/homebrew-cask/pull/24759
-  - firefox
   - google-chrome
-  - handbrake
-  # - karabiner # Note: Now using Karabiner Elements for macOS Sierra
-  - kdiff3
-  - licecap
-  - limechat
-  - macvim
-  # - menumeters # Note: Using forked version for 10.11+ support
-  - nvalt
-  # - seil # Note: Now using Karabiner Elements for macOS Sierra
   - sequel-pro
-  - skype
-  - skitch
-  - slack
-  - sublime-text
-  - transmit
   - vagrant
   - virtualbox
-  - vlc
+  - slack
+  - iterm2
+  - lastpass
+  - sizeup
+  - flycut
+  - spotify
+  - docker

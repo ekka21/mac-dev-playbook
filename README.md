@@ -1,6 +1,6 @@
 # Mac Development Ansible Playbook
 
-[![Build Status](https://travis-ci.org/geerlingguy/mac-dev-playbook.svg?branch=master)](https://travis-ci.org/geerlingguy/mac-dev-playbook)
+[![Build Status](https://travis-ci.org/ekka21/mac-dev-playbook.svg?branch=master)](https://travis-ci.org/ekka21/mac-dev-playbook)
 
 This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in macOS are difficult to automate (notably, the Mac App Store and certain tools from Apple), so I still have some manual installation steps, but at least it's all documented here.
 
@@ -26,127 +26,48 @@ This is a work in progress, and is mostly a means for me to document my current 
 
 Applications (installed with Homebrew Cask):
 
-  - [Docker](https://www.docker.com/)
-  - [Dropbox](https://www.dropbox.com/)
-  - <s>[Fing](https://www.fing.io/)</s> (Note: Waiting on [this PR](https://github.com/caskroom/homebrew-cask/pull/24759) to get merged)
-  - [Firefox](https://www.mozilla.org/en-US/firefox/new/)
-  - [Google Chrome](https://www.google.com/chrome/)
-  - [Handbrake](https://handbrake.fr/)
-  - [Homebrew](http://brew.sh/)
-  - <s>[Karabiner](https://pqrs.org/osx/karabiner/)</s> (Note: Currently using [Karabiner Elements](https://github.com/tekezo/Karabiner-Elements) for macOS Sierra)
-  - [KDiff3](http://kdiff3.sourceforge.net/)
-  - [LICEcap](http://www.cockos.com/licecap/)
-  - [LimeChat](http://limechat.net/mac/)
-  - [MacVim](http://macvim-dev.github.io/macvim/)
-  - <s>[Menu Meters](https://www.ragingmenace.com/software/menumeters/)</s> (Note: Currently using [this fork](http://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/) for compatibility)
-  - [nvALT](http://brettterpstra.com/projects/nvalt/)
-  - <s>[Seil](https://pqrs.org/osx/karabiner/seil.html.en)</s> (Note: Currently using [Karabiner Elements](https://github.com/tekezo/Karabiner-Elements) for macOS Sierra)
-  - [Sequel Pro](https://www.sequelpro.com/) (MySQL client)
-  - [Skype](https://www.skype.com/en/)
-  - [Skitch](https://evernote.com/skitch/)
-  - [Slack](https://slack.com/)
-  - [Sublime Text](https://www.sublimetext.com/)
-  - [Transmit](https://panic.com/transmit/) (S/FTP client)
-  - [Vagrant](https://www.vagrantup.com/)
-  - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-  - [VLC](http://www.videolan.org/vlc/index.html)
+  - google-chrome
+  - sequel-pro
+  - vagrant
+  - virtualbox
+  - slack
+  - iterm2
+  - lastpass
+  - sizeup
+  - flycut
+  - spotify
+  - docker
 
 Packages (installed with Homebrew):
 
-  - autoconf
-  - bash-completion
-  - gettext
+  - pv
+  - openssl
   - git
+  - git-flow
   - go
   - gpg
-  - hub
-  - httpie
-  - iperf
-  - libdvdcss
-  - libevent
-  - packer
   - python
   - sqlite
-  - mcrypt
-  - mysql
-  - npm
+  - zsh
+  - vim
+  - tmux
   - nvm
+  - npm
+  - tig
+  - ssh-copy-id
+  - htop
+  - php70
   - php70
   - php70-mcrypt
-  - php70-xdebug
-  - ssh-copy-id
-  - cowsay
-  - readline
-  - subversion
-  - openssl
-  - pv
-  - drush
-  - wget
-  - wrk
 
-My [dotfiles](https://github.com/geerlingguy/dotfiles) are also installed into the current user's home directory, including the `.osx` dotfile for configuring many aspects of macOS for better performance and ease of use.
+My [dotfiles](https://github.com/ekka21/dotfiles) are also installed into the current user's home directory.
 
 Finally, there are a few other preferences and settings added on for various apps and services.
-
-## Future additions
-
-### Things that still need to be done manually
-
-It's my hope that I can get the rest of these things wrapped up into Ansible playbooks soon, but for now, these steps need to be completed manually (assuming you already have Xcode and Ansible installed, and have run this playbook).
-
-  1. Set JJG-Term as the default Terminal theme (it's installed, but not set as default automatically).
-  2. Install [Sublime Package Manager](http://sublime.wbond.net/installation).
-  3. Install all the Mac App Store Apps (see below).
-  4. Install all the apps that aren't yet in this setup (see below).
-  5. Remap Caps Lock to Escape (keycode 53), using [Seil](https://pqrs.org/osx/karabiner/seil.html.en).
-  6. Set trackpad tracking rate.
-  7. Set mouse tracking rate.
-  8. Configure extra Mail and/or Calendar accounts (e.g. Google, Exchange, etc.).
-
-### Applications/packages to be added:
-
-These are mostly direct download links, some are more difficult to install because of custom installers or other nonstandard install quirks:
-
-  - [iShowU HD](http://downloads.shinywhitebox.com/iShowU_HD_Pro_2.3.7.dmg)
-  - [Adobe Creative Cloud](http://www.adobe.com/creativecloud.html)
-  - [Microsoft Office](https://products.office.com/en-us/mac/microsoft-office-for-mac)
-
-### Configuration to be added:
-
-  - I have vim configuration in the repo, but I still need to add the actual installation:
-    ```
-    mkdir -p ~/.vim/autoload
-    mkdir -p ~/.vim/bundle
-    cd ~/.vim/autoload
-    curl https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim > pathogen.vim
-    cd ~/.vim/bundle
-    git clone git://github.com/scrooloose/nerdtree.git
-    ```
-
-### Apps only available via the App Store
-
-I also use the following apps at least once or twice per week, but the Mac App Store is harder to control via CLI, so for now I have to manually install all of these apps from within the App Store application (see [Issue #11](https://github.com/geerlingguy/mac-dev-playbook/issues/11)).
-
-  - Tweetbot
-  - RadarScope
-  - Pixelmator
-  - Quick Resizer
-  - 1Password
-  - DaisyDisk
-  - Byword
-  - Aperture
-  - Pages
-  - Keynote
-  - Numbers
-
-## Testing the Playbook
-
-Many people have asked me if I often wipe my entire workstation and start from scratch just to test changes to the playbook. Nope! Instead, I posted instructions for how I build a [Mac OS X VirtualBox VM](https://github.com/geerlingguy/mac-osx-virtualbox-vm), on which I can continually run and re-run this playbook to test changes and make sure things work correctly.
 
 ## Ansible for DevOps
 
 Check out [Ansible for DevOps](https://www.ansiblefordevops.com/), which will teach you how to do some other amazing things with Ansible.
 
 ## Author
+[Ekkachai Danwanichakul](http://www.ekkachai.net), 2016 (originally inspired by [Jeff Geerling](http://www.jeffgeerling.com/), 2014 (also originally inspired by [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks))).
 
-[Jeff Geerling](http://www.jeffgeerling.com/), 2014 (originally inspired by [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks)).

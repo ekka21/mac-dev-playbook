@@ -1,0 +1,9 @@
+---
+- name: Remove .oh-my-zsh
+  file: path=~/.oh-my-zsh state=absent
+  
+- name: Clone Oh My Zsh repo
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=~/.oh-my-zsh
+
+- name: Remove default .zshrc
+  file: path=~/.zshrc state=absent
